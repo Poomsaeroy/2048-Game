@@ -1,0 +1,209 @@
+#:kivy 2.0.0
+#: set padding 20
+
+<MenuScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            text: '--- 2048 ---'
+            font_size: 75
+            color: 1,0.76,0.3,1 
+            canvas.before:
+                Color:
+                    rgba: 0, 0, 0, 1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+        Label:
+            text: ' HAVE FUN !!! '
+            font_size: 20
+            color: 1,0.76,0.3,1 
+            canvas.before:
+                Color:
+                    rgba: 0, 0, 0, 1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+        BoxLayout:
+            Button:
+                text: 'START'
+                font_size: 30
+                on_press:
+                    root.manager.current = 'main' 
+                    root.manager.transition.direction = 'left'
+                background_color : 0.24, 0.8, 0.29, 1
+                pos_hint: {'x':0.2,'y':.2}
+                size_hint: 0.8,0.5
+            Button:
+                text: 'EXIT'
+                font_size: 30
+                on_press: app.stop() 
+                background_color : 1, 0, 0, 1
+                pos_hint: {'x':.6,'y':.2}
+                size_hint: 0.8,0.5
+                
+<MainScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        BoxLayout:
+            size_hint: 1, .20
+            Label:
+                id: score
+                canvas.before: 
+                    Color: 
+                        rgb: 1, .66, .35, 0
+                    Rectangle: 
+                        pos: self.pos 
+                        size: self.size
+
+                halign: 'center'
+                valign: 'center'
+                font_size: 40        
+                text: 'Score : 0'
+                color: (0,0,0,1)
+                bold: True
+
+            BoxLayout:
+                orientation: 'vertical'
+                size_hint: .5, 1
+                Label:
+                    id: gaming
+                    canvas.before: 
+                        Color: 
+                            rgb: 0, 0, 0, 1
+                        Rectangle: 
+                            pos: self.pos 
+                            size: self.size
+                    halign: 'center'
+                    valign: 'center'
+                    font_size: 30
+                    text: ''
+                    color: (1,0,0,1)
+                    bold: True
+                BoxLayout:
+                    Button:
+                        text: 'Reset'
+                        on_press: root.reset()
+                    Button:
+                        text: 'Return'
+                        font_size: 15
+                        on_press:
+                            root.manager.current = 'menu' 
+                            root.manager.transition.direction = 'right'
+                        background_color : 1, 0, 0, 1
+
+        BoxLayout:
+            padding: 53
+            canvas.before: 
+                Color: 
+                    rgb: 1, 1, .6, 1
+                Rectangle: 
+                    pos: self.pos 
+                    size: self.size
+            
+            GridLayout:
+                cols: 4
+                spacing: 2
+                size: [min(root.width,root.height)-2*padding]*2
+                canvas.before: 
+                    Color: 
+                        rgb: .5, .5, .2, 1
+                    Rectangle: 
+                        pos: self.pos 
+                        size: self.size
+    #1
+                Label:
+                    id: 0
+                    text: '-'
+                    font_size: 35
+                    background_color: .2, .1, .26, 1
+
+                Label:
+                    id: 1
+                    text: '-'
+                    font_size: 35
+                    background_color: .2, .24, .1, 1
+
+                Label:
+                    id: 2
+                    text: '-'
+                    font_size: 35
+                    background_color: .2, .24, .26, 1
+
+                Label:
+                    id: 3
+                    text: '-'
+                    font_size: 35
+                    background_color: .2, .24, .26, 1
+    #2
+                Label:
+                    id: 4
+                    text: '-'
+                    font_size: 35
+                    background_color: .2, .24, .26, 1
+
+                Label:
+                    id: 5
+                    text: '-'
+                    font_size: 35
+                    background_color: .2, .24, .26, 1
+
+                Label:
+                    id: 6
+                    text: '-'
+                    font_size: 35
+                    background_color: .2, .24, .26, 1
+
+                Label:
+                    id: 7
+                    text: '-'
+                    font_size: 35
+                    background_color: .2, .24, .26, 1
+    #3
+                Label:
+                    id: 8
+                    text: '-'
+                    font_size: 35
+                    background_color: .2, .24, .26, 1
+
+                Label:
+                    id: 9
+                    text: '-'
+                    font_size: 35
+                    background_color: .2, .24, .26, 1
+
+                Label:
+                    id: 10
+                    text: '-'
+                    font_size: 35
+                    background_color: .2, .24, .26, 1
+
+                Label:
+                    id: 11
+                    text: '-'
+                    font_size: 35
+                    background_color: .2, .24, .26, 1
+    #4
+                Label:
+                    id: 12
+                    text: '-'
+                    font_size: 35
+                    background_color: .2, .24, .26, 1
+
+                Label:
+                    id: 13
+                    text: '-'
+                    font_size: 35
+                    background_color: .2, .24, .26, 1
+
+                Label:
+                    id: 14
+                    text: '-'
+                    font_size: 35
+                    background_color: .2, .24, .26, 1
+
+                Label:
+                    id: 15
+                    text: '-'
+                    font_size: 35
+                    background_color: .2, .24, .26, 1
